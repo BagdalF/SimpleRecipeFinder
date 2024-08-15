@@ -1,0 +1,318 @@
+:root {
+  font-size: 62.5%;
+}
+
+.barlow-regular {
+  font-family: "Barlow", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.barlow-medium {
+  font-family: "Barlow", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.barlow-semibold {
+  font-family: "Barlow", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.barlow-bold {
+  font-family: "Barlow", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+
+
+body {
+  margin: 0;
+  padding-bottom: 12.8rem;
+  background-color: #eeeae7;
+  font: 400 1.6rem "Barlow", Arial, sans-serif;
+}
+
+a {
+  font-weight: 500;
+  color: #e2725b;
+  padding-top: 0.4rem;
+}
+
+#homeText {
+  margin: 6.4rem;
+  line-height: 3.2rem;
+  text-align: center;
+}
+
+.content ul {
+  display: inline-block;
+  vertical-align: top;
+  padding-left: 2rem;
+  list-style: none;
+}
+
+.content li::before {
+  content: "• ";
+  color: #e2725b;
+}
+
+.content li {
+  font-size: 1.4rem;
+}
+
+.content ul p {
+  text-align: center;
+  color: #e2725b;
+  font-weight: bold;
+  margin: 1rem auto 1rem;
+}
+
+.content .ingList {
+  width: 30%;
+}
+
+.content .dirList {
+  width: 60%;
+}
+
+.container {
+  width: clamp(35rem, 60vw, 80rem);
+  margin: auto;
+  padding: 0 4rem 0 3rem;
+}
+
+.card {
+  list-style: none;
+  width: 97.5%;
+  padding: 1rem;
+  margin: 2rem 0;
+  border-radius: 0.8rem;
+  
+  box-shadow: 0.6rem 0.6rem 1rem -0.1rem rgba(0,0,0,0.2),
+              -0.6rem -0.6rem 1rem -0.1rem rgba(255,255,255,0.7);
+  transition-duration: 0.5s;
+}
+
+.card label {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  font-size: 2rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.card label::before {
+  content: '+';
+  color: #e2725b;
+  margin-right: 1rem;
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+.card a {
+  display: block;
+  text-align: right;
+  margin-right: 1rem;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+.container .content {
+  color: #555;
+  padding: 0 1rem;
+  line-height: 2.4rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s, padding 0.5s;
+}
+
+.container input[type="checkbox"]:checked + label + .content{
+  max-height: fit-content;
+  padding: 1rem 1rem 2rem;
+}
+
+.container input[type="checkbox"]:checked + label::before {
+  content: '-';
+}
+
+/*header*/
+.searchBox {
+  padding: 0.8rem;
+  margin-bottom: 3.2rem;
+  display: flex;
+  align-items: center;
+  box-shadow: 0.6rem 0.6rem 1rem -0.1rem rgba(0,0,0,0.2);
+}
+
+.recipesInfo {
+  display: flex;
+}
+
+#siteTitle {
+  width: fit-content;
+  margin: 1.6rem auto auto 0;
+  display: inline;
+}
+
+#siteTitle {
+  width: fit-content;
+  margin: 1.6rem auto auto 0;
+  display: inline;
+}
+
+.title {
+  padding-left: 1.6rem;
+}
+
+.title h2{
+  display: inline-block;
+  vertical-align: super;
+  margin: 0;
+  line-height: 2.4rem;
+}
+
+.info {
+  display: block;
+}
+
+.logo img{
+  vertical-align: text-bottom;
+  max-height: 6.4rem;
+}
+
+.searchbar {
+  margin: auto auto auto 15%;
+}
+
+/*search*/
+.search {
+  width: clamp(30rem, 45vw, 60rem);;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 2.8rem;
+  background: #f6f6f6;
+  transition: box-shadow 0.25s;
+}
+
+.search:focus-within {
+  box-shadow: 0 0 0.8rem #e2725b;;
+}
+
+
+.search-input {
+  font-size: 1.6rem;
+  margin-left: 1rem;
+  outline: none;
+  border: none;
+  background: transparent;
+  width: 100%;
+}
+
+.search-input::placeholder {
+  color: rgba(0,0,0,0.7)
+}
+
+.search button {
+  outline: none;
+  border: none;
+  background: transparent;
+  color: #e2725b;
+}
+
+/*pagination*/
+.pagination {
+  width: fit-content;
+  margin: 1.1rem 0 auto auto;
+  display: flex;
+  padding: 0.3rem;
+
+  border-radius: 1.5rem;
+  background: #f6f6f6;
+  transition: box-shadow 0.25s;
+}
+
+.active-button {
+  background: #e2725b;
+  color: rgb(238, 234, 231);
+  font: 700 1.2rem "Barlow", Arial, sans-serif;
+}
+
+.pagination button {
+  width: fit-content;
+  margin: 0.2rem;
+  border: none;
+  display: inline-block;
+
+  border-radius: 0.6rem;
+  box-shadow: inset 0 0.2rem 0.4rem rgba(0,0,0,0.1);
+  padding: 0 0.4rem 0 0.5rem;
+}
+
+.pagination button:not(.active-button) {
+  background: none;
+  font: 500 1.2rem "Barlow", Arial, sans-serif;
+}
+
+.pagination button:first-child {
+  border-radius: 0.8rem 0 0 0.8rem;
+}
+.pagination button:nth-last-of-type(1) {
+  border-radius: 0 0.8rem 0.8rem 0;
+}
+
+.pagination button:hover:not(.active-button) {
+  background: #555;
+  color: #eeeae7
+}
+
+/*footer*/
+.footer .pagination {
+  margin: 3.2rem auto;
+}
+
+.footerBox {
+
+  padding-top: 3.2rem;
+  margin-top: 2.4rem;
+  display: flex;
+  align-items: center;
+  box-shadow: -0.6rem -0.6rem 1rem -0.3rem rgba(0,0,0,0.2);
+}
+
+.footerBox p {
+  margin: auto;
+}
+
+@media (max-width: 600px) {
+  .title h2{
+    display: none;
+  }
+
+  .title {
+    padding: 0; 
+  }
+
+  .searchbar {
+    margin: auto auto auto min(3%, 4vw);
+  }
+
+  .card label {
+    font-size: 1.8rem;
+  }
+
+  .content .ingList {
+    width: 90%;
+  }
+  
+  .content .dirList {
+    width: 90%;
+  }
+}

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title><%= title %></title>
+    <link rel="icon" type="image/x-icon" href="/public/images/favicon.ico">
+    <link rel='stylesheet' type="text/css" href='/public/assets/style.css'>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <script type = "text/javascript" src="/public/javascripts/pageHandler.js"></script>
+  </head>
+
+  <body>
+    <div class="searchBox">
+      <div class="title">
+        <picture class="logo">
+          <source media="(min-width: 192px)"
+            srcset="/public/images/android-chrome-192x192.png" class="logo">
+          <img src="/public/images/favicon-32x32.png" alt="site logo"
+            class="logo">
+        </picture>
+        <h2>The<br> Recipe<br> Finder<br></h2>
+      </div>
+      <div class="searchbar">
+        <form action="/search" method="get" id="pageIdentifier">
+          <div class="search">
+            <input class="search-input" type="search" id="search" name="search"
+              placeholder="Search" minlength="3" <%if (searchterm) {%>value=<%=searchterm%><%}%>>
+
+            <button type="submit"><span
+                class="search-icon material-symbols-outlined">search</span></button>
+          </div>
+        </form>
+        <% if (recipes != null) {%>
+          <div class="recipesInfo">
+            <p id="siteTitle"><%= title %></p>
+    
+            <div class="pagination">
+              <%if (currentpage > 1) {%><button class="side-button"
+                type="submit" form="pageIdentifier" name="page"
+                value=<%-(Number.parseInt(currentpage, 10)-1)%>><</button><%}%>
+              <button class="top-pagination-button" type="submit"
+                form="pageIdentifier" name="page"
+                value="1">1</button>
+              <button class="top-pagination-button" type="submit" form="pageIdentifier"
+                name="page"
+                value="2">2</button>
+              <button class="top-pagination-button" type="submit" form="pageIdentifier"
+                name="page"
+                value="3">3</button>
+              <button class="top-pagination-button" type="submit" form="pageIdentifier"
+                name="page"
+                value="4">4</button>
+              <button class="top-pagination-button" type="submit" form="pageIdentifier"
+                name="page"
+                value="5">5</button>
+              <%if (currentpage != pages) {%><button class="side-button"
+                type="submit" form="pageIdentifier" name="page"
+                value=<%-(Number.parseInt(currentpage, 10)+1)%>>></button>
+              <%}%>
+
+              <script>
+                changeTopNumeration(<%-currentpage%>, <%-pages%>);
+              </script>
+            </div>
+          </div>
+        <%}%>
+      </div>
+    </div>
+
+    <div class="recipesBox">
+      <% console.log("test") %>
+      <% if (recipes == null) {%>
+      <p id="homeText">Welcome to <%= title %>, by BagdalF<br>
+        This site searches recipes, by title as well as by ingredients</p>
+      <%} else {%>
+      <ul class="container">
+        <% for(let i=0; i < recipes.length; i++) { %>
+        <li class="card">
+          <input type="checkbox" name="card" id="recipe<%=[i]%>">
+          <!--if (i==0) {checked}-->
+          <label for="recipe<%=[i]%>"><%=recipes[i].title%></label>
+          <div class="content">
+            <ul class="ingList">
+              <p>Ingredients</p>
+              <% for(let j=0; j < recipes[i].ingredients.length; j++) { %>
+              <li><%= recipes[i].ingredients[j] %></li>
+              <% } %>
+            </ul>
+            <ul class="dirList">
+              <p>Directions</p>
+              <% for(let j=0; j < recipes[i].directions.length; j++) { %>
+              <li><%= recipes[i].directions[j] %></li>
+              <% } %>
+            </ul>
+            <a href='http://<%=recipes[i].link%>' target="_blank">See more
+              information about</a>
+          </div>
+        </li>
+        <% } %>
+        <%}%>
+      </ul>
+    </div>
+    <% if (recipes != null) {%>
+      <div class="footer">
+        <div class="pagination">
+          <%if (currentpage > 1) {%><button class="side-button"
+            type="submit" form="pageIdentifier" name="page"
+            value=<%-(Number.parseInt(currentpage, 10)-1)%>><</button><%}%>
+          <button class="bottom-pagination-button" type="submit"
+            form="pageIdentifier" name="page"
+            value="1">1</button>
+          <button class="bottom-pagination-button" type="submit" form="pageIdentifier"
+            name="page"
+            value="2">2</button>
+          <button class="bottom-pagination-button" type="submit" form="pageIdentifier"
+            name="page"
+            value="3">3</button>
+          <button class="bottom-pagination-button" type="submit" form="pageIdentifier"
+            name="page"
+            value="4">4</button>
+          <button class="bottom-pagination-button" type="submit" form="pageIdentifier"
+            name="page"
+            value="5">5</button>
+          <%if (currentpage != pages) {%><button class="side-button"
+            type="submit" form="pageIdentifier" name="page"
+            value=<%-(Number.parseInt(currentpage, 10)+1)%>>></button>
+          <%}%>
+          <script>
+            changeBottomNumeration(<%-currentpage%>, <%-pages%>);
+          </script>
+        </div>
+        <div class="footerBox">
+          <p>All credits to BagdalF</p>
+        </div>
+      </div>
+    <%}%>
+  </body>
+</html>
