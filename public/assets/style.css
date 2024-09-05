@@ -26,9 +26,6 @@
   font-style: normal;
 }
 
-
-
-
 body {
   margin: 0;
   padding-bottom: 12.8rem;
@@ -48,34 +45,34 @@ a {
   text-align: center;
 }
 
-.content ul {
+article ul {
   display: inline-block;
   vertical-align: top;
   padding-left: 2rem;
   list-style: none;
 }
 
-.content li::before {
+article li::before {
   content: "• ";
   color: #e2725b;
 }
 
-.content li {
+article li {
   font-size: 1.4rem;
 }
 
-.content ul p {
+article ul p {
   text-align: center;
   color: #e2725b;
   font-weight: bold;
   margin: 1rem auto 1rem;
 }
 
-.content .ingList {
+article .ingList {
   width: 30%;
 }
 
-.content .dirList {
+article .dirList {
   width: 60%;
 }
 
@@ -124,7 +121,7 @@ input[type="checkbox"] {
   display: none;
 }
 
-.container .content {
+.container article {
   color: #555;
   padding: 0 1rem;
   line-height: 2.4rem;
@@ -133,7 +130,7 @@ input[type="checkbox"] {
   transition: max-height 0.5s, padding 0.5s;
 }
 
-.container input[type="checkbox"]:checked + label + .content{
+.container input[type="checkbox"]:checked + label + article{
   max-height: fit-content;
   padding: 1rem 1rem 2rem;
 }
@@ -143,7 +140,7 @@ input[type="checkbox"] {
 }
 
 /*header*/
-.searchBox {
+header {
   padding: 0.8rem;
   margin-bottom: 3.2rem;
   display: flex;
@@ -187,7 +184,7 @@ input[type="checkbox"] {
   max-height: 6.4rem;
 }
 
-.searchbar {
+nav {
   margin: auto auto auto 15%;
 }
 
@@ -274,11 +271,11 @@ input[type="checkbox"] {
 }
 
 /*footer*/
-.footer .pagination {
+#pagBottom {
   margin: 3.2rem auto;
 }
 
-.footerBox {
+footer {
 
   padding-top: 3.2rem;
   margin-top: 2.4rem;
@@ -287,7 +284,7 @@ input[type="checkbox"] {
   box-shadow: -0.6rem -0.6rem 1rem -0.3rem rgba(0,0,0,0.2);
 }
 
-.footerBox p {
+footer p {
   margin: auto;
 }
 
@@ -300,7 +297,7 @@ input[type="checkbox"] {
     padding: 0; 
   }
 
-  .searchbar {
+  nav {
     margin: auto auto auto min(3%, 4vw);
   }
 
@@ -308,11 +305,11 @@ input[type="checkbox"] {
     font-size: 1.8rem;
   }
 
-  .content .ingList {
+  article .ingList {
     width: 90%;
   }
   
-  .content .dirList {
+  article .dirList {
     width: 90%;
   }
 }

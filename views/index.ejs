@@ -17,7 +17,7 @@
   </head>
 
   <body>
-    <div class="searchBox">
+    <header>
       <div class="title">
         <picture class="logo">
           <source media="(min-width: 192px)"
@@ -27,7 +27,7 @@
         </picture>
         <h2>The<br> Recipe<br> Finder<br></h2>
       </div>
-      <div class="searchbar">
+      <nav class="searchbar">
         <form action="/search" method="get" id="pageIdentifier">
           <div class="search">
             <input class="search-input" type="search" id="search" name="search"
@@ -72,10 +72,9 @@
           </div>
         <%}%>
       </div>
-    </div>
+    </header>
 
-    <div class="recipesBox">
-      <% console.log("test") %>
+    <section>
       <% if (recipes == null) {%>
       <p id="homeText">Welcome to <%= title %>, by BagdalF<br>
         This site searches recipes, by title as well as by ingredients</p>
@@ -86,7 +85,7 @@
           <input type="checkbox" name="card" id="recipe<%=[i]%>">
           <!--if (i==0) {checked}-->
           <label for="recipe<%=[i]%>"><%=recipes[i].title%></label>
-          <div class="content">
+          <article>
             <ul class="ingList">
               <p>Ingredients</p>
               <% for(let j=0; j < recipes[i].ingredients.length; j++) { %>
@@ -101,15 +100,15 @@
             </ul>
             <a href='http://<%=recipes[i].link%>' target="_blank">See more
               information about</a>
-          </div>
+          </article>
         </li>
         <% } %>
         <%}%>
       </ul>
-    </div>
+    </section>
+
     <% if (recipes != null) {%>
-      <div class="footer">
-        <div class="pagination">
+        <section class="pagination" id="pagBottom">
           <%if (currentpage > 1) {%><button class="side-button"
             type="submit" form="pageIdentifier" name="page"
             value=<%-(Number.parseInt(currentpage, 10)-1)%>><</button><%}%>
@@ -135,11 +134,11 @@
           <script>
             changeBottomNumeration(<%-currentpage%>, <%-pages%>);
           </script>
-        </div>
-        <div class="footerBox">
-          <p>All credits to BagdalF</p>
-        </div>
-      </div>
+        </section>
+
+      <footer>
+        <p>All credits to BagdalF</p>
+      </footer>
     <%}%>
   </body>
 </html>
